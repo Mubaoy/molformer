@@ -1,0 +1,49 @@
+{
+  "basic": {
+    "version": "molformer_moleculenet_cls_random-scaffold",
+    "log_dir_base": "{CHEMVL_DATA_ROOT}/results/moleculenet",
+    "gpu": "0",
+    "ngpu": 1,
+    "num_workers": 4,
+    "save_finetune_ckpt": false,
+    "description": "MoLFormer baseline under ChemVL MoleculeNet random_scaffold split."
+  },
+  "dataset": {
+    "benchmark": "moleculenet",
+    "dataset": "bbbp",
+    "dataroot": "{CHEMVL_DATA_ROOT}/finetuning_datasets",
+    "moleculenet_mpp_subdir": "MPP",
+    "split": "random_scaffold",
+    "task_type": "classification",
+    "num_tasks": 1,
+    "class_names": ["class1", "class2"],
+    "chirality": true
+  },
+  "model": {
+    "molformer_repo": "{MOLFORMER_REPO}",
+    "pretrained_ckpt": "{MOLFORMER_REPO}/data/Pretrained MoLFormer/checkpoints/N-Step-Checkpoint_3_30000.ckpt",
+    "n_head": 12,
+    "n_layer": 12,
+    "n_embd": 768,
+    "d_dropout": 0.1,
+    "dropout": 0.1,
+    "num_feats": 32,
+    "freeze_encoder": false
+  },
+  "training": {
+    "seed": 1,
+    "runseed": 1,
+    "epochs": 100,
+    "start_epoch": 0,
+    "batch_size": 64,
+    "optimizer": "AdamW",
+    "lr": 0.00003,
+    "weight_decay": 0.0,
+    "loss": "bce",
+    "max_grad_norm": null
+  },
+  "regression_scheduler": {
+    "num_classes": null,
+    "bin_mode": null
+  }
+}

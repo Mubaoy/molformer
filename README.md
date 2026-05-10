@@ -183,6 +183,16 @@ The `notebooks` directory provide attention visualization for two setup with Rot
 
 Note: for full attention, you will need to train a new model -- the pretrained model provided uses linear attention. Also, the plots may be slightly different from the paper when using the provided pretrained model.
 
+## ChemVL Protocol Baseline
+
+This fork includes a ChemVL-compatible MoleculeNet protocol runner under
+[`scripts/chemvl_protocol`](scripts/chemvl_protocol). It fine-tunes MoLFormer
+with ChemVL-style `scaffold` and `random_scaffold` splits, three `runseed`s,
+and ChemVL-compatible `result.json` outputs for downstream table aggregation.
+
+See [`scripts/chemvl_protocol/README.md`](scripts/chemvl_protocol/README.md)
+for data layout, RDKit version, and run commands.
+
 ## Citations
 ```
 @article{10.1038/s42256-022-00580-7,
